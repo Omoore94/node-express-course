@@ -18,5 +18,12 @@ app.get('/users', function(req, res) {
 
 
 app.listen(5000, function() {
-    console.log("this server is up and runnning")
-    });
+    app.get('/users/:id',function(req,res){
+        console.log(req.params.id)
+        res.json({
+            success: true,
+            message: 'got one user',
+            user: req.params.id
+        })
+    })
+});
